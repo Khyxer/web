@@ -1,4 +1,3 @@
-// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -10,28 +9,24 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 let prevScrollpos = window.pageYOffset;
 const navbar = document.getElementById("navbar");
-const scrollThreshold = 50; // Ajusta este valor según tus necesidades
+const scrollThreshold = 50; 
 
 window.onscroll = function () {
   const currentScrollPos = window.pageYOffset;
 
-  // Verifica si se ha desplazado más allá del umbral
   if (currentScrollPos > scrollThreshold) {
-    // Hide/show navbar
     if (prevScrollpos > currentScrollPos) {
       navbar.style.top = "0";
     } else {
       navbar.style.top = "-100px";
     }
 
-    // Agregar sombra al navbar cuando se ha desplazado más allá del umbral
     if (currentScrollPos > 50) {
       navbar.style.boxShadow = "0 10px 30px -10px rgba(2, 12, 27, 0.7)";
     } else {
       navbar.style.boxShadow = "none";
     }
   } else {
-    // Asegúrate de que el navbar esté visible cuando no se ha desplazado más allá del umbral
     navbar.style.top = "0";
     navbar.style.boxShadow = "none";
   }
@@ -39,7 +34,6 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 };
 
-// Contact form handling with enhanced feedback
 const contactForm = document.getElementById("contact-form");
 contactForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -47,11 +41,9 @@ contactForm.addEventListener("submit", function (e) {
   const button = this.querySelector("button");
   const originalText = button.textContent;
 
-  // Visual feedback
   button.textContent = "Sending...";
   button.style.opacity = "0.7";
 
-  // Simulate sending (replace with actual form submission)
   setTimeout(() => {
     button.textContent = "Message Sent!";
     button.style.backgroundColor = "#64ffda";
@@ -60,7 +52,6 @@ contactForm.addEventListener("submit", function (e) {
     // Reset form
     this.reset();
 
-    // Reset button after 2 seconds
     setTimeout(() => {
       button.textContent = originalText;
       button.style.backgroundColor = "transparent";
@@ -69,7 +60,6 @@ contactForm.addEventListener("submit", function (e) {
   }, 1000);
 });
 
-// Add fade-in animation for project cards
 const observerOptions = {
   threshold: 0.2,
 };
@@ -114,4 +104,3 @@ toggleTheme.addEventListener("click", () => {
     document.documentElement.style.setProperty("--hover-color", "#64ffda20");
   }
 });
-
