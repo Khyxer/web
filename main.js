@@ -122,7 +122,34 @@ links.forEach((link) => {
     event.preventDefault();
     document.getElementById("menu-responsive").classList.toggle("active");
 
-    const checkMenu = buttonMenuRes
+    const checkMenu = buttonMenuRes;
     checkMenu.checked = !checkMenu.checked;
   });
 });
+
+// iconos en los lados
+
+const iconAside = document.getElementById("social-buttons");
+const pixelUmbral = 600;
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > pixelUmbral) {
+    iconAside.classList.add("active");
+  } else {
+    iconAside.classList.remove("active");
+  }
+});
+
+// text typing
+const introductionText = document.getElementById("introduction-text");
+text = "Khyxer developer <.../>";
+
+function effectTextTyping(elemento, text, i = 0) {
+  elemento.textContent += text[i];
+
+  if ( i ===text.length-1) return
+
+  setTimeout(() => effectTextTyping(introductionText, text, i + 1), 60);
+}
+
+effectTextTyping(introductionText, text);
