@@ -8,7 +8,7 @@
   --hover-color: #64ffda20;
 }
 
- .light-theme {
+.light-theme {
   --primary-color: #45b097;
   --background-color: #e8e8e8;
   --secondary-bg: #f8f9fa;
@@ -16,14 +16,13 @@
   --text-secondary: #495057;
   --card-background: #e9ecef;
   --hover-color: rgba(0, 123, 255, 0.1);
-} 
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  
 }
 
 body {
@@ -32,7 +31,6 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   transition: all 0.2s ease;
-
 }
 
 .container {
@@ -74,7 +72,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #303136; 
+  background-color: #303136;
   transition: background-color 0.4s;
   border-radius: 30px;
 }
@@ -85,23 +83,21 @@ body {
   height: var(--size-of-icon);
   width: var(--size-of-icon);
   border-radius: 50%;
-  left: var(--slider-offset); 
+  left: var(--slider-offset);
   top: 50%;
   transform: translateY(-50%);
   background: #303136;
-  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb; 
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
   transition: left 0.4s, background 0.4s, box-shadow 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #f4f4f5; 
+  background-color: var(--background-color);
 }
 
 input:checked + .slider:before {
-  left: calc(
-    100% - var(--size-of-icon) - var(--slider-offset)
-  ); 
-  background: linear-gradient(40deg, #ff0080, #ff8c00 70%); 
+  left: calc(100% - var(--size-of-icon) - var(--slider-offset));
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
   box-shadow: none;
 }
 
@@ -110,6 +106,7 @@ input:checked + .slider:before {
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
   /* background-color: rgba(10, 25, 47, 0.85); */
   background-color: var(--background-color);
   backdrop-filter: blur(10px);
@@ -121,6 +118,7 @@ input:checked + .slider:before {
 .nav-content {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   align-items: center;
   padding: 1rem 2rem;
   max-width: 1200px;
@@ -362,16 +360,135 @@ input:checked + .slider:before {
   transform: translateY(-2px);
 }
 
+#checkbox {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: 0.5s;
+}
+
+.bars {
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 4px;
+}
+
+#bar2 {
+  transition-duration: 0.8s;
+}
+
+#bar1,
+#bar3 {
+  width: 70%;
+}
+
+#checkbox:checked + .toggle .bars {
+  position: absolute;
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle #bar2 {
+  transform: scaleX(0);
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle #bar1 {
+  width: 100%;
+  transform: rotate(45deg);
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle #bar3 {
+  width: 100%;
+  transform: rotate(-45deg);
+  transition-duration: 0.5s;
+}
+
+#checkbox:checked + .toggle {
+  transition-duration: 0.5s;
+  transform: rotate(180deg);
+}
+
+.nav-responsive{
+  display: none;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-content {
+
+  .nav-responsive{
+    display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+    width: 100%;
+    margin: 2% 0rem 2% 2rem;
+    
   }
 
+  .nav-responsive .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    color: var(--primary-color);
+  }
+
+  .nav-responsive .nav-bar h1 {
+    flex: 1;
+  }
+
+  .menu-responsive{
+ display: none;
+    
+  }
+
+  .menu-responsive.active{
+
+    display: flex;
+  
+  }
+
+  .menu-responsive ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .menu-responsive ul a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-content{
+    display: none;
+  }
   .nav-content ul {
-    gap: 1.5rem;
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+  }
+
+  .toggle {
+    display: flex;
   }
 
   #home h1 {

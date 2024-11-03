@@ -9,7 +9,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
 let prevScrollpos = window.pageYOffset;
 const navbar = document.getElementById("navbar");
-const scrollThreshold = 50; 
+const scrollThreshold = 50;
 
 window.onscroll = function () {
   const currentScrollPos = window.pageYOffset;
@@ -18,7 +18,7 @@ window.onscroll = function () {
     if (prevScrollpos > currentScrollPos) {
       navbar.style.top = "0";
     } else {
-      navbar.style.top = "-100px";
+      navbar.style.top = "-180px";
     }
 
     if (currentScrollPos > 50) {
@@ -92,7 +92,9 @@ toggleTheme.addEventListener("click", () => {
     document.documentElement.style.setProperty("--text-color", "#212529");
     document.documentElement.style.setProperty("--text-secondary", "#495057");
     document.documentElement.style.setProperty("--card-background", "#e9ecef");
-    document.documentElement.style.setProperty("--hover-color", "rgba(0, 123, 255, 0.1)"
+    document.documentElement.style.setProperty(
+      "--hover-color",
+      "rgba(0, 123, 255, 0.1)"
     );
   } else {
     document.documentElement.style.setProperty("--primary-color", "#64ffda");
@@ -103,4 +105,24 @@ toggleTheme.addEventListener("click", () => {
     document.documentElement.style.setProperty("--card-background", "#1a2744");
     document.documentElement.style.setProperty("--hover-color", "#64ffda20");
   }
+});
+
+// menu responsive
+
+const buttonMenuRes = document.getElementById("checkbox");
+const menuRes = document.getElementById("menu-responsive");
+const links = document.querySelectorAll("#menu-responsive a");
+
+buttonMenuRes.addEventListener("click", () => {
+  menuRes.classList.toggle("active");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    document.getElementById("menu-responsive").classList.toggle("active");
+
+    const checkMenu = buttonMenuRes
+    checkMenu.checked = !checkMenu.checked;
+  });
 });
