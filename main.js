@@ -89,3 +89,29 @@ document.querySelectorAll(".project-card").forEach((card) => {
   card.style.transition = "all 0.6s ease-out";
   observer.observe(card);
 });
+
+// COSAS A MEJORAR EN EL FUTURO #1 - OPTIMIZAR ESTA MRDA
+
+const toggleTheme = document.getElementById("toggleTheme");
+
+toggleTheme.addEventListener("click", () => {
+  if (toggleTheme.checked) {
+    document.documentElement.style.setProperty("--primary-color", "#45b097");
+    document.documentElement.style.setProperty("--background-color", "#cdcdcd");
+    document.documentElement.style.setProperty("--secondary-bg", "#f8f9fa");
+    document.documentElement.style.setProperty("--text-color", "#212529");
+    document.documentElement.style.setProperty("--text-secondary", "#495057");
+    document.documentElement.style.setProperty("--card-background", "#e9ecef");
+    document.documentElement.style.setProperty("--hover-color", "rgba(0, 123, 255, 0.1)"
+    );
+  } else {
+    document.documentElement.style.setProperty("--primary-color", "#64ffda");
+    document.documentElement.style.setProperty("--background-color", "#0a192f");
+    document.documentElement.style.setProperty("--secondary-bg", "#112240");
+    document.documentElement.style.setProperty("--text-color", "#ccd6f6");
+    document.documentElement.style.setProperty("--text-secondary", "#8892b0");
+    document.documentElement.style.setProperty("--card-background", "#1a2744");
+    document.documentElement.style.setProperty("--hover-color", "#64ffda20");
+  }
+});
+
