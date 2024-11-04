@@ -141,8 +141,11 @@ window.addEventListener("scroll", () => {
 });
 
 // text typing
+
+
 const introductionText = document.getElementById("introduction-text");
-text = "Khyxer developer <.../>";
+
+const text = "Khyxer developer <.../>";
 
 function effectTextTyping(elemento, text, i = 0) {
   elemento.textContent += text[i];
