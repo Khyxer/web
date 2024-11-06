@@ -316,9 +316,7 @@ input:checked + .slider:before {
 /* Projects Section */
 #projects {
   padding: 0 0rem 4rem 0;
-  background-image: url("https://i.ibb.co/fGmqtSs/project-background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+
 }
 
 #projects h2 {
@@ -390,9 +388,6 @@ input:checked + .slider:before {
 #contact {
   padding: 8rem 0;
   background-color: var(--secondary-bg);
-  background-image: url("https://i.ibb.co/k9MgTBC/stacked-waves-haikei.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #contact h2 {
